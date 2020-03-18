@@ -1,0 +1,40 @@
+<app-new-product
+  (refreshProducts)="refreshProducts($event)">
+</app-new-product>
+<table class="table table-bordered table-dark">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Image</th>
+      <th>Weight</th>
+      <th>Sold By</th>
+      <th>Quantity</th>
+      <th>Scanned</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="loading">
+    <tr>
+      <app-spinner>
+      </app-spinner>
+    </tr>
+  </tbody>
+  <tbody *ngIf="!loading">
+    <tr *ngFor="let product of products; index as i">
+      <th>{{ i }}</th>
+      <th>
+        <a
+          [routerLink]="['/products', product.id]">
+          <div class="name">{{product.name}}</div>
+        </a>
+      </th>
+      <th>{{product.price}}</th>
+      <th>{{product.imageUrl}}</th>
+      <th>{{product.weight}}</th>
+      <th>{{product.soldBy}}</th>
+      <th>{{product.quantity}}</th>
+      <th>{{product.isScanned}}</th>
+    </tr>
+  </tbody>
+</table>

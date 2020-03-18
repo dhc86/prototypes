@@ -1,0 +1,31 @@
+<table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Department</th>
+      <th>Title</th>
+      <th>Start Date</th>
+      <th>Phone</th>
+      <th>Address</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="loading">
+    <tr>
+      <app-spinner>
+      </app-spinner>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr *ngFor="let employee of employees; index as i">
+      <th>{{ i }}</th>
+      <th>{{ employee.name }}</th>
+      <th>{{ employee.department }}</th>
+      <th>{{ employee.title }}</th>
+      <th>{{ employee.startDate }}</th>
+      <th>{{ employee.phone }}</th>
+      <th>{{ employee.address }}</th>
+    </tr>
+  </tbody>
+</table>
+

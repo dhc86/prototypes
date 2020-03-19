@@ -1,20 +1,22 @@
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src={{product.imageUrl}} alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-text">Name: {{product.name}}</h5>
-    <p class="card-text">Price: {{product.price}}$</p>
-    <p class="card-title">Id: {{product.id}}</p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">Weight: {{product.weight}}</li>
-    <li class="list-group-item">Sold by: {{product.soldBy}}</li>
-    <li class="list-group-item">In Stock: {{product.quantity}}</li>
-    <li class="list-group-item">Scanned: {{product.isScanned}}</li>
-  </ul>
-  <div class="card-body">
-    <a
-      class="card-link"
-      [routerLink]="['orders']"
-      [queryParams]="{ page: 1 }">View Orders</a>
+<div class="container">
+  <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src={{product.imageUrl}} alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-text">Name: {{product.name}}</h5>
+      <p class="card-text">Price: {{product.price}}$</p>
+      <p class="card-title">Id: {{product.id}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Weight: {{product.weight}}</li>
+      <li class="list-group-item">Sold by: {{product.soldBy}}</li>
+      <li class="list-group-item">In Stock: {{product.quantity}}</li>
+      <li class="list-group-item">Scanned: {{product.isScanned}}</li>
+    </ul>
+    <div class="card-body">
+      <a
+        class="card-link"
+        [routerLink]="['orders']"
+        [queryParams]="{ page: 1 }">View Orders</a>
+    </div>
   </div>
 </div>

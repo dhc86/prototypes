@@ -1,25 +1,26 @@
-<table class="table table-bordered table-dark">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>ID</th>
-      <th>Product ID</th>
-      <th>Date</th>
-    </tr>
-  </thead>
-  <tbody *ngIf="loading">
-    <tr>
-      <app-spinner>
-      </app-spinner>
-    </tr>
-  </tbody>
-  <tbody>
-    <tr *ngFor="let order of orders; index as i">
-      <th>{{ i }}</th>
-      <th>{{order.id}}</th>
-      <th>{{order.productId}}</th>
-      <th>{{order.date}}</th>
-    </tr>
-  </tbody>
-</table>
-
+<div class="container">
+  <table class="table table-bordered table-dark">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>ID</th>
+        <th>Product ID</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="loading">
+      <tr>
+        <app-spinner>
+        </app-spinner>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr *ngFor="let order of orders; index as i">
+        <th>{{ i }}</th>
+        <th>{{order.id}}</th>
+        <th>{{order.productId}}</th>
+        <th>{{order.date}}</th>
+      </tr>
+    </tbody>
+  </table>
+</div>

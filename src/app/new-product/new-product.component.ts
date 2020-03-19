@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { ProductService } from '../services/product.service';
-
+import { ToastrService } from 'ngx-toastr';
+import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-new-product',
   templateUrl: './new-product.component.html',
@@ -8,20 +9,21 @@ import { ProductService } from '../services/product.service';
 })
 export class NewProductComponent implements OnInit {
   @Output() refreshProducts =  new EventEmitter<any>();
-  displayModal: boolean = false;
+  @ViewChild('productForm') public createProductForm: NgForm;
+
   constructor(
-    private productsService: ProductService
+    private productsService: ProductService,
+    private toastrService: ToastrService
   ) { }
 
   ngOnInit(): void {
   }
 
-  openModal() {
-    this.displayModal = !this.displayModal;
-  }
-
   submitProduct(rawNewProduct){
-    this.productsService.addProduct(rawNewProduct);
-    this.refreshProducts.emit(rawNewProduct);
+    this.productsService.addProduct(rawNewProduct).subscribe((newProduct) => {
+      this.toastrService.success("Product was created successfully!")
+      this.refreshProducts.emit(newProduct);
+    });
+
   }
 }

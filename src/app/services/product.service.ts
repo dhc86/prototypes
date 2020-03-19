@@ -47,6 +47,7 @@ export class ProductService {
     // return product to stock
     product['id'] = JSON.stringify(this.products.length + 1);
     product['isScanned'] = false;
-		this.products.push(product);
+    this.products.push(product);
+    return of( new Product(product.id, product.name, product.price, product.imageUrl, product.weight, product.soldBy, product.quantity, product.isScanned, product.description));
 	}
 }

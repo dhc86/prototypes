@@ -13,15 +13,18 @@ export class ProductComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService
-  ) { }
+  ) {
+    this.product = this.route.snapshot.data['product'];
+  }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe((paramsMap)=> {
-      let id = paramsMap.get('id');
-      this.productService.getProduct(id).subscribe((data)=> {
-        this.product = data;
-      })
-    })
+    // no need for this since, we are getting using a resolver in the router!
+    // this.route.paramMap.subscribe((paramsMap)=> {
+    //   let id = paramsMap.get('id');
+    //   this.productService.getProduct(id).subscribe((data)=> {
+    //     this.product = data;
+    //   })
+    // })
   }
 
 }

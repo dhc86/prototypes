@@ -9,12 +9,26 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { OrdersComponent } from './orders/orders.component';
 // import { OrderComponent } from './order/order.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ProductResolverService } from './resolvers/product-resolver.service';
+import { NewProductComponent } from './new-product/new-product.component';
+import { NewProductCanDeactivateService } from './guards/new-product-can-deactivate.service';
 
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
+  {
+    path: 'products/new',
+    component: NewProductComponent,
+    canDeactivate: [ NewProductCanDeactivateService ]
+  },
   { path: 'products/:id/orders', component: OrdersComponent },
-  { path: 'products/:id', component: ProductComponent },
+  {
+    path: 'products/:id',
+    component: ProductComponent,
+    resolve: {
+      product: ProductResolverService
+    }
+  },
   { path: 'products', component: ProductsComponent },
   { path: 'employees/:id', component: EmployeeComponent },
   { path: 'employees', component: EmployeesComponent },

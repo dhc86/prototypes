@@ -1,13 +1,136 @@
-<!-- Button trigger modal -->
-<button
-  type="button"
-  class="btn btn-primary"
-  data-toggle="modal"
-  data-target="#exampleModalLong"
-  (click)="openModal()">
-  New Product
-</button>
-<app-new-product-form
-  (submitProduct)="submitProduct($event)">
-</app-new-product-form>
+<div class="container">
+  <form
+    ngForm
+    #productForm="ngForm"
+    (ngSubmit)="submitProduct(productForm)">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        required
+        ngModel
+        name="name"
+        id="name"
+        #name="ngModel"
+        type="text"
+        class="form-control">
+      <div
+        class="alert alert-danger"
+        *ngIf="!name.valid && name.touched">Name is required!
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="imageUrl">Image url</label>
+      <input
+        required
+        ngModel
+        #imageUrl="ngModel"
+        name="imageUrl"
+        id="imageUrl"
+        class="form-control">
+        <div
+          class="alert alert-danger"
+          *ngIf="!imageUrl.valid && imageUrl.touched">Image url is required!
+        </div>
+    </div>
+    <!-- <div class="container"> -->
+      <div class="row">
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="price">Price</label>
+            <input
+              required
+              ngModel
+              #price="ngModel"
+              name="price"
+              id="price"
+              type="number"
+              class="form-control">
+              <div
+                class="alert alert-danger"
+                *ngIf="!price.valid && price.touched">Price is required!
+              </div>
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="weight">Weight</label>
+            <input
+              required
+              ngModel
+              #weight="ngModel"
+              name="weight"
+              id="weight"
+              type="number"
+              class="form-control">
+              <div
+                class="alert alert-danger"
+                *ngIf="!weight.valid && weight.touched">Weight is required!
+              </div>
+          </div>
+        </div>
+        <div class="col-sm">
+          <div class="form-group">
+            <label for="quantity">Quantity</label>
+            <input
+              required
+              ngModel
+              #quantity="ngModel"
+              name="quantity"
+              id="quantity"
+              type="number"
+              class="form-control">
+              <div
+                class="alert alert-danger"
+                *ngIf="!quantity.valid && quantity.touched">Quantity is required!
+              </div>
+          </div>
+        </div>
+      </div>
+    <!-- </div> -->
+    <div class="form-group">
+      <label for="weight">Sold by</label>
+      dropdown
+    </div>
+    <div class="form-group">
+      <label
+        for="description">Description
+      </label>
+      <editor
+        required
+        ngModel
+        name="description"
+        #description="ngModel"
+        id="description"
+        [init]="{
+          height: 250,
+          menubar: false,
+          plugins: [
+            'advlist autolink lists link image charmap print preview anchor'
+          ],
+          toolbar: 'undo redo | formatselect | ' +
+          ' bold italic backcolor | alignleft aligncenter ' +
+          ' alignright alignjustify | bullist numlist outdent indent |' +
+          ' removeformat | help'
+        }">
+      </editor>
+      <div
+        class="alert alert-danger"
+        *ngIf="!description.valid && description.touched">Description is required!
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="btn btn-secondary"
+        [routerLink]="['/products']">Back
+      </button>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!productForm.valid">Save
+      </button>
+    </div>
+  </form>
+</div>
+
 

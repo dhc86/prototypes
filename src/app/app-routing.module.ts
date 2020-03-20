@@ -12,6 +12,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProductResolverService } from './resolvers/product-resolver.service';
 import { NewProductComponent } from './new-product/new-product.component';
 import { NewProductCanDeactivateService } from './guards/new-product-can-deactivate.service';
+import { CocktailsComponent } from './cocktails/cocktails.component';
 
 
 const routes: Routes = [
@@ -30,6 +31,7 @@ const routes: Routes = [
     }
   },
   { path: 'products', component: ProductsComponent },
+  { path: 'cocktails', component: CocktailsComponent },
   { path: 'employees/:id', component: EmployeeComponent },
   { path: 'employees', component: EmployeesComponent },
   { path: 'orders', component: OrdersComponent },

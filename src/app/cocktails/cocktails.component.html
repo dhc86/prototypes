@@ -1,0 +1,55 @@
+<div class="container cocktails-container">
+  <div class="row product-list-title">
+    <div class="col-10 title">
+      Cocktail List
+    </div>
+    <div class="col">
+      <button
+        type="button"
+        class="btn btn-primary"
+        [routerLink]="['/products/new']"
+        routerLinkActive="router-link-active">
+        New Cocktail
+      </button>
+    </div>
+  </div>
+  <div class="table-container">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Glass Type</th>
+          <th>Alcohol Level</th>
+          <th>Main Ingredient</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="isLoading">
+        <tr>
+          <app-spinner>
+          </app-spinner>
+        </tr>
+      </tbody>
+      <tbody *ngIf="!isLoading">
+        <tr *ngFor="let cocktail of cocktails; index as i">
+          <td class="image-content">
+            <img [src]="cocktail.strDrinkThumb" alt="">
+          </td>
+          <th>
+            <a
+              [routerLink]="['/cocktails', cocktail.idDrink]">
+              <div class="name">{{cocktail.strDrink}}</div>
+            </a>
+          </th>
+          <th>{{cocktail.strCategory}}</th>
+          <th>{{cocktail.strGlass}}</th>
+          <th>{{cocktail.strAlcoholic}}</th>
+          <th>{{cocktail.strIngredient1}}</th>
+          <th>{{cocktail.dateModified}}</th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

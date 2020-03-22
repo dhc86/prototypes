@@ -1,25 +1,30 @@
 import { Injectable } from '@angular/core';
 import { plainToClass } from 'class-transformer';
-import { Http, Response } from '@angular/http';
 import { Cocktail } from '../models/cocktail';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import {  map, tap } from 'rxjs/operators';
+import { BaseHttpService } from './base-http.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CocktailService {
-  public path = '/api/products';
-
+  path: string = '/search.php'
   constructor(
-    private http: Http,
+    private baseHttpService: BaseHttpService
   ) { }
 
-  getAllByLetter(letter: string): Observable<Cocktail[]> {
-    return this.http
-      .get(environment.apiUrl + `/search.php?f=${letter}`)
-      .map((response: Response)=> {
-        return response.json().drinks.map(drink => plainToClass(Cocktail ,drink));
-      });
+  getAll(letter: string): Observable<Cocktail[]> {
+    let options: {} = {
+      path: this.path + '?f=' + letter
+    }
+    return this.baseHttpService.getAll(options)
+      .pipe(
+        map((response: any)=> {
+          return response.drinks.map(drink => plainToClass(Cocktail ,drink));
+        })
+      )
   }
 }

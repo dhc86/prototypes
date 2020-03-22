@@ -13,6 +13,9 @@ import { ProductResolverService } from './resolvers/product-resolver.service';
 import { NewProductComponent } from './new-product/new-product.component';
 import { NewProductCanDeactivateService } from './guards/new-product-can-deactivate.service';
 import { CocktailsComponent } from './cocktails/cocktails.component';
+import { IngredientsComponent } from './ingredients/ingredients.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { GlassesComponent } from './glasses/glasses.component';
 
 
 const routes: Routes = [
@@ -30,12 +33,16 @@ const routes: Routes = [
       product: ProductResolverService
     }
   },
-  { path: 'products', component: ProductsComponent },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'dashboard/products', component: ProductsComponent },
+  { path: 'dashboard/employees', component: EmployeesComponent },
+  { path: 'dashboard/orders', component: OrdersComponent },
+
+  { path: 'cocktails/ingredients', component: IngredientsComponent },
+  { path: 'cocktails/categories', component: CategoriesComponent },
+  { path: 'cocktails/glasses', component: GlassesComponent },
   { path: 'cocktails', component: CocktailsComponent },
   { path: 'employees/:id', component: EmployeeComponent },
-  { path: 'employees', component: EmployeesComponent },
-  { path: 'orders', component: OrdersComponent },
-  { path: 'dashboard', component: DashboardComponent },
   { path: '**', component: NotFoundComponent }
   // not created yet
   // { path: 'products/:name/:id', component: ProductComponent },

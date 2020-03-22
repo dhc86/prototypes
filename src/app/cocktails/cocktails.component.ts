@@ -4,6 +4,7 @@ import { Cocktail } from '../models/cocktail';
 import { IngredientService } from '../services/ingredient.service';
 import { CategoryService } from '../services/category.service';
 import { GlassService } from '../services/glass.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cocktails',
@@ -19,22 +20,19 @@ export class CocktailsComponent implements OnInit {
     private ingreadientService: IngredientService,
     private categoryService: CategoryService,
     private glassService: GlassService,
+    private toastrService: ToastrService
   ) { }
 
   ngOnInit(): void {
-    this.cocktailService.getAllByLetter('a').subscribe((cocktails)=>{
-      this.cocktails = cocktails;
-      this.isLoading = false;
-    });
-    // testing the services!
-    this.categoryService.getAll().subscribe(data => {
-      console.log(data);
-    })
-    this.ingreadientService.getAll().subscribe(data => {
-      console.log(data);
-    })
-    this.glassService.getAll().subscribe(data => {
-      console.log(data);
-    })
+    this.cocktailService.getAll('a')
+      .subscribe(
+        (cocktails)=>{
+          this.cocktails = cocktails;
+          this.isLoading = false;
+        },
+        (error) => {
+          this.toastrService.error(error.message)
+        }
+    );
   }
 }

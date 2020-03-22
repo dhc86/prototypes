@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import { Glass } from '../models/glass';
 import { environment } from 'src/environments/environment';
 import { plainToClass } from 'class-transformer';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -11,14 +12,15 @@ import { plainToClass } from 'class-transformer';
 export class GlassService {
 
   constructor(
-    private http: Http
+    private http: HttpClient
   ) { }
 
   getAll(): Observable<Glass[]> {
     return this.http
-      .get(`${environment.apiUrl}list.php?g=list`)
-      .map((response: Response)=> {
-        return response.json().drinks.map(glass => plainToClass(Glass ,glass));
-      });
+      .get<Glass[]>(`${environment.apiUrl}list.php?g=list`).pipe(
+        map((response: any)=> {
+          return response.drinks.map(glass => plainToClass(Glass ,glass));
+        })
+      );
   }
 }

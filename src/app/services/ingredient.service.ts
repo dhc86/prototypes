@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject, Observer } from 'rxjs';
 import { Ingredient } from '../models/ingredient';
-import { Http, Response } from '@angular/http';
 import { environment } from 'src/environments/environment';
 import { plainToClass } from 'class-transformer';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { catchError, map, tap } from 'rxjs/operators';
+import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 
 @Injectable({
   providedIn: 'root'
@@ -11,14 +13,15 @@ import { plainToClass } from 'class-transformer';
 export class IngredientService {
 
   constructor(
-    private http: Http
+    private http: HttpClient
   ) { }
 
   getAll(): Observable<Ingredient[]> {
     return this.http
-      .get(`${environment.apiUrl}list.php?i=list`)
-      .map((response: Response)=> {
-        return response.json().drinks.map(category => plainToClass(Ingredient ,category));
-      });
+      .get<Ingredient[]>(`${environment.apiUrl}list.php?i=list`).pipe(
+        map((response: any)=> {
+          return response.drinks.map(category => plainToClass(Ingredient ,category));
+        })
+      )
   }
 }

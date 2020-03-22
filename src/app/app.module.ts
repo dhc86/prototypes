@@ -6,7 +6,7 @@ import { FormsModule } from "@angular/forms";
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 // components
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
@@ -22,6 +22,9 @@ import { CocktailsComponent } from './cocktails/cocktails.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { OrdersComponent } from './orders/orders.component';
 import { OrderComponent } from './order/order.component';
+import { IngredientsComponent } from './ingredients/ingredients.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { GlassesComponent } from './glasses/glasses.component';
 // services
 import { ProductService } from "./services/product.service";
 import { EmployeeService } from "./services/employee.service";
@@ -30,9 +33,13 @@ import { CocktailService } from './services/cocktail.service';
 import { CategoryService } from './services/category.service';
 import { IngredientService } from './services/ingredient.service';
 import { GlassService } from './services/glass.service';
+import { BaseHttpService } from './services/base-http.service';
 // resolvers
 import { ProductResolverService } from './resolvers/product-resolver.service';
 import { NewProductCanDeactivateService } from './guards/new-product-can-deactivate.service';
+//interceptor
+import { HttpIntercept } from './interceptors/http-intercept';
+import { SubNavbarComponent } from './sub-navbar/sub-navbar.component';
 
 @NgModule({
   declarations: [
@@ -49,10 +56,14 @@ import { NewProductCanDeactivateService } from './guards/new-product-can-deactiv
     SpinnerComponent,
     DashboardComponent,
     NewProductComponent,
-    CocktailsComponent
+    CocktailsComponent,
+    IngredientsComponent,
+    CategoriesComponent,
+    GlassesComponent,
+    SubNavbarComponent
   ],
   imports: [
-    HttpModule,
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
@@ -72,7 +83,13 @@ import { NewProductCanDeactivateService } from './guards/new-product-can-deactiv
     CocktailService,
     CategoryService,
     IngredientService,
-    GlassService
+    GlassService,
+    BaseHttpService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpIntercept,
+      multi: true
+    }
   ],
   bootstrap: [
     AppComponent

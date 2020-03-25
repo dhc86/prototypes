@@ -91,7 +91,7 @@
       <label for="weight">Sold by</label>
       dropdown
     </div>
-    <div class="form-group">
+    <div class="form-group text-editor">
       <label
         for="description">Description
       </label>
@@ -101,17 +101,7 @@
         name="description"
         #description="ngModel"
         id="description"
-        [init]="{
-          height: 250,
-          menubar: false,
-          plugins: [
-            'advlist autolink lists link image charmap print preview anchor'
-          ],
-          toolbar: 'undo redo | formatselect | ' +
-          ' bold italic backcolor | alignleft aligncenter ' +
-          ' alignright alignjustify | bullist numlist outdent indent |' +
-          ' removeformat | help'
-        }">
+        [init]="initEditor">
       </editor>
       <div
         class="alert alert-danger"
@@ -132,5 +122,3 @@
     </div>
   </form>
 </div>
-
-

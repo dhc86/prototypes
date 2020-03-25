@@ -1,0 +1,36 @@
+<div class="container">
+  <form
+    ngForm
+    #ingredientFrom="ngForm"
+    (onSubmit)="submitIngredient(ingredientFrom)">
+    <div class="form-group">
+      <label for="name">Ingredient Name</label>
+      <input
+        required
+        ngModel
+        name="name"
+        id="name"
+        #name="ngModel"
+        type="text"
+        class="form-control">
+      <div
+        class="alert alert-danger"
+        *ngIf="!name.valid && name.touched">Name is required!
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="btn btn-secondary"
+        [routerLink]="['/cocktails/ingredients']">Back
+      </button>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!ingredientFrom.valid">Save
+      </button>
+    </div>
+  </form>
+
+</div>
+

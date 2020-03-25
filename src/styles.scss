@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+
+.tox-tinymce-aux {
+  .tox-dialog-wrap {
+    .tox-dialog-wrap__backdrop {
+      background-color: rgba(59, 57, 57, 0.75);
+    }
+    .tox-dialog {
+      border-radius: 0.8rem;
+      .tox-dialog__header {
+        padding: 14px 16px 14px 16px;
+      }
+      .tox-dialog__footer {
+        border-top: 0px;
+        padding: 16px;
+      }
+    }
+    .tox-dialog__footer {
+      .tox-button {
+        background-color: #c018a2;;
+        border-radius: 1rem;
+        font-weight: 500;
+        border-color: #c018a2;;
+      }
+      .tox-button--secondary {
+        background-color: white;
+        border-radius: 1rem;
+        font-weight: 500;
+        border-color: lightgrey;
+      }
+    }
+  }
+}

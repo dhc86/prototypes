@@ -17,6 +17,7 @@ export class NavbarComponent implements OnInit {
       if(event instanceof NavigationStart) {
         if(event.url.indexOf('cocktails') !==-1) {
           this.navBarSubOptions = [
+            {url: '/cocktails/cocktails', label: 'Cocktails'},
             {url: '/cocktails/categories', label: 'Categories'},
             {url: '/cocktails/glasses', label: 'Glasses'},
             {url: '/cocktails/ingredients', label: 'Ingredients'},

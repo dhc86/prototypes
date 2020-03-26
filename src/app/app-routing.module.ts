@@ -16,6 +16,10 @@ import { CocktailsComponent } from './cocktails/cocktails.component';
 import { IngredientsComponent } from './ingredients/ingredients.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { GlassesComponent } from './glasses/glasses.component';
+import { NewIngredientComponent } from './new-ingredient/new-ingredient.component';
+import { NewCategoryComponent } from './new-category/new-category.component';
+import { NewGlassComponent } from './new-glass/new-glass.component';
+import { NewCocktailComponent } from './new-cocktail/new-cocktail.component';
 
 
 const routes: Routes = [
@@ -37,12 +41,18 @@ const routes: Routes = [
   { path: 'dashboard/products', component: ProductsComponent },
   { path: 'dashboard/employees', component: EmployeesComponent },
   { path: 'dashboard/orders', component: OrdersComponent },
+  { path: 'employees/:id', component: EmployeeComponent },
 
   { path: 'cocktails/ingredients', component: IngredientsComponent },
+  { path: 'cocktails/ingredients/new', component: NewIngredientComponent },
   { path: 'cocktails/categories', component: CategoriesComponent },
+  { path: 'cocktails/categories/new', component: NewCategoryComponent },
   { path: 'cocktails/glasses', component: GlassesComponent },
-  { path: 'cocktails', component: CocktailsComponent },
-  { path: 'employees/:id', component: EmployeeComponent },
+  { path: 'cocktails/glasses/new', component: NewGlassComponent },
+  { path: 'cocktails/cocktails', component: CocktailsComponent },
+  { path: 'cocktails/cocktails/new', component: NewCocktailComponent },
+  { path: 'cocktails', redirectTo: '/cocktails/cocktails', },
+
   { path: '**', component: NotFoundComponent }
   // not created yet
   // { path: 'products/:name/:id', component: ProductComponent },

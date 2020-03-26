@@ -2,7 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
@@ -25,6 +25,7 @@ import { OrderComponent } from './order/order.component';
 import { IngredientsComponent } from './ingredients/ingredients.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { GlassesComponent } from './glasses/glasses.component';
+import { SubNavbarComponent } from './sub-navbar/sub-navbar.component';
 // services
 import { ProductService } from "./services/product.service";
 import { EmployeeService } from "./services/employee.service";
@@ -37,9 +38,15 @@ import { BaseHttpService } from './services/base-http.service';
 // resolvers
 import { ProductResolverService } from './resolvers/product-resolver.service';
 import { NewProductCanDeactivateService } from './guards/new-product-can-deactivate.service';
-//interceptor
+// interceptor
 import { HttpIntercept } from './interceptors/http-intercept';
-import { SubNavbarComponent } from './sub-navbar/sub-navbar.component';
+// UI widgets
+import { MainTableWidgetComponent } from './shared/main-table/main-table-widget.component';
+import { AddItemButtonComponent } from './shared/add-item-button/add-item-button.component';
+import { NewCategoryComponent } from './new-category/new-category.component';
+import { NewIngredientComponent } from './new-ingredient/new-ingredient.component';
+import { NewGlassComponent } from './new-glass/new-glass.component';
+import { NewCocktailComponent } from './new-cocktail/new-cocktail.component';
 
 @NgModule({
   declarations: [
@@ -60,13 +67,20 @@ import { SubNavbarComponent } from './sub-navbar/sub-navbar.component';
     IngredientsComponent,
     CategoriesComponent,
     GlassesComponent,
-    SubNavbarComponent
+    SubNavbarComponent,
+    MainTableWidgetComponent,
+    AddItemButtonComponent,
+    NewCategoryComponent,
+    NewIngredientComponent,
+    NewGlassComponent,
+    NewCocktailComponent
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     EditorModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({

@@ -1,0 +1,5 @@
+<button
+  (click)="selectMessage(message)"
+  [class.selected]="isSelected(message)">
+  <span [ngClass]="classList">{{message}}</span>
+</button>

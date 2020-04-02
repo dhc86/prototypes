@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'app-welcome',
@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./welcome.component.scss']
 })
 export class WelcomeComponent implements OnInit {
+  @HostBinding('attr.class') cssClass = 'row';
 
+  messages: string[] = ['Welcome', 'to', 'my cool prtotype', 'App!']
+  selectedMessage: string = 'No message selected yet!';
   constructor() { }
 
   ngOnInit(): void {
+
+  }
+
+  selectMessageLabel(event) {
+    console.log(event);
+    this.selectedMessage = event;
   }
 
 }

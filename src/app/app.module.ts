@@ -62,6 +62,7 @@ import { AllBoxesComponent } from './boxes/all-boxes/all-boxes.component';
 import { GeneralButtonComponent } from './shared/general-button/general-button.component';
 
 import { BoxMessagesComponent } from './boxes/box-messages/box-messages.component';
+import { SelectableLabelComponent } from './selectable-label/selectable-label.component';
 
 
 @NgModule({
@@ -97,7 +98,8 @@ import { BoxMessagesComponent } from './boxes/box-messages/box-messages.componen
     BoxWidgetComponent,
     AllBoxesComponent,
     GeneralButtonComponent,
-    BoxMessagesComponent
+    BoxMessagesComponent,
+    SelectableLabelComponent
   ],
   imports: [
     HttpClientModule,

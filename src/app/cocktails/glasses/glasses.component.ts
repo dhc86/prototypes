@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GlassService } from '../services/glass.service';
-import { Glass } from '../models/glass';
+import { GlassService } from '../../services/glass.service';
+import { Glass } from '../../models/glass';
 
 @Component({
   selector: 'app-glasses',

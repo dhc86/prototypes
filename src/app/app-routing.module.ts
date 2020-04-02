@@ -13,13 +13,14 @@ import { ProductResolverService } from './resolvers/product-resolver.service';
 import { NewProductComponent } from './new-product/new-product.component';
 import { NewProductCanDeactivateService } from './guards/new-product-can-deactivate.service';
 import { CocktailsComponent } from './cocktails/cocktails.component';
-import { IngredientsComponent } from './ingredients/ingredients.component';
-import { CategoriesComponent } from './categories/categories.component';
-import { GlassesComponent } from './glasses/glasses.component';
+import { IngredientsComponent } from './cocktails/ingredients/ingredients.component';
+import { CategoriesComponent } from './cocktails/categories/categories.component';
+import { GlassesComponent } from './cocktails/glasses/glasses.component';
 import { NewIngredientComponent } from './new-ingredient/new-ingredient.component';
 import { NewCategoryComponent } from './new-category/new-category.component';
 import { NewGlassComponent } from './new-glass/new-glass.component';
 import { NewCocktailComponent } from './new-cocktail/new-cocktail.component';
+import { AllBoxesComponent } from './boxes/all-boxes/all-boxes.component';
 
 
 const routes: Routes = [
@@ -51,8 +52,13 @@ const routes: Routes = [
   { path: 'cocktails/glasses/new', component: NewGlassComponent },
   { path: 'cocktails/cocktails', component: CocktailsComponent },
   { path: 'cocktails/cocktails/new', component: NewCocktailComponent },
+  { path: 'all-boxes', component: AllBoxesComponent },
   { path: 'cocktails', redirectTo: '/cocktails/cocktails', },
-
+  {
+    path: 'lazy',
+    loadChildren:
+    () => import('./lazy/lazy.module').then(mod => mod.LazyModule)
+  },
   { path: '**', component: NotFoundComponent }
   // not created yet
   // { path: 'products/:name/:id', component: ProductComponent },

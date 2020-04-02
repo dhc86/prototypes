@@ -1,3 +1,24 @@
 <div class="container">
   <p>welcome works!</p>
+  <div>
+    <span *ngFor="let message of messages">
+      <app-selectable-label
+        [label]="message"
+        (selectLabel)="selectMessageLabel($event)">
+      </app-selectable-label>
+      </span>
+  </div>
+  <div>Select one of those messages!!</div>
+  <div>{{ selectedMessage }}</div>
+  <div class="container" [ngSwitch]="selectedMessage">
+    <div *ngSwitchCase="'Welcome'">Welcome to this awesome all</div>
+    <div *ngSwitchCase="'to'">To what???</div>
+    <div *ngSwitchCase="'my cool prtotype'">my cool prtotype</div>
+    <div *ngSwitchCase="'App!'">Prototype application</div>
+    <div *ngSwitchCase="'to'">This one is rendered as well with to selected</div>
+    <div *ngSwitchDefault>Nothing has been selected</div>
+  </div>
+  <div ngNonBindable>
+    This is using a ngNonBindable directive to display {{ selectedMessage }} here!!
+  </div>
 </div>

@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <app-box-messages
+    class="input-container">
+  </app-box-messages>
+  </div>
+  <div class="row">
+    <div class="col">
+      <button
+        (click)="showBox1 = !showBox1">Click here!!
+      </button>
+      <app-box1
+        *ngIf="showBox1">
+      </app-box1>
+    </div>
+    <div class="col">
+      <button
+        (click)="showBox2 = !showBox2">Click here!!
+      </button>
+      <app-box2
+        *ngIf="showBox2">
+      </app-box2>
+    </div>
+    <div class="w-100"></div>
+    <div class="col">
+      <button
+        (click)="showBox3 = !showBox3">Click here!!
+      </button>
+      <app-box3
+        *ngIf="showBox3">
+      </app-box3>
+    </div>
+    <div class="col">
+      <button
+        (click)="showBox4 = !showBox4">Click here!!
+      </button>
+      <app-box4
+        *ngIf="showBox4">
+      </app-box4>
+    </div>
+  </div>
+</div>

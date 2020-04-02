@@ -1,0 +1,21 @@
+<div class="input-group">
+  <input
+    [(ngModel)]="message"
+    type="text"
+    class="form-control"
+    placeholder="Recipient's username"
+    aria-label="Recipient's username"
+    aria-describedby="basic-addon2">
+  <div class="input-group-append">
+    <button
+      class="btn btn-outline-secondary"
+      type="button"
+      (click)="sendMessage(message)">Send Message
+    </button>
+    <button
+      class="btn btn-outline-secondary"
+      type="button"
+      (click)="clearAllMessages()">Delete all
+    </button>
+  </div>
+</div>

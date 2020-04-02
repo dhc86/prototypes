@@ -18,13 +18,18 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NewProductComponent } from './new-product/new-product.component';
+// ---
 import { CocktailsComponent } from './cocktails/cocktails.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { IngredientsComponent } from './cocktails/ingredients/ingredients.component';
+import { CategoriesComponent } from './cocktails/categories/categories.component';
+import { GlassesComponent } from './cocktails/glasses/glasses.component';
+// ---
 import { OrdersComponent } from './orders/orders.component';
 import { OrderComponent } from './order/order.component';
-import { IngredientsComponent } from './ingredients/ingredients.component';
-import { CategoriesComponent } from './categories/categories.component';
-import { GlassesComponent } from './glasses/glasses.component';
+
+
+import { NavbarComponent } from './navbar/navbar.component';
+
 import { SubNavbarComponent } from './sub-navbar/sub-navbar.component';
 // services
 import { ProductService } from "./services/product.service";
@@ -35,6 +40,7 @@ import { CategoryService } from './services/category.service';
 import { IngredientService } from './services/ingredient.service';
 import { GlassService } from './services/glass.service';
 import { BaseHttpService } from './services/base-http.service';
+import { BoxService } from './services/box.service';
 // resolvers
 import { ProductResolverService } from './resolvers/product-resolver.service';
 import { NewProductCanDeactivateService } from './guards/new-product-can-deactivate.service';
@@ -47,6 +53,16 @@ import { NewCategoryComponent } from './new-category/new-category.component';
 import { NewIngredientComponent } from './new-ingredient/new-ingredient.component';
 import { NewGlassComponent } from './new-glass/new-glass.component';
 import { NewCocktailComponent } from './new-cocktail/new-cocktail.component';
+import { Box1Component } from './boxes/box1/box1.component';
+import { Box2Component } from './boxes/box2/box2.component';
+import { Box3Component } from './boxes/box3/box3.component';
+import { Box4Component } from './boxes/box4/box4.component';
+import { BoxWidgetComponent } from './shared/box-widget/box-widget.component';
+import { AllBoxesComponent } from './boxes/all-boxes/all-boxes.component';
+import { GeneralButtonComponent } from './shared/general-button/general-button.component';
+
+import { BoxMessagesComponent } from './boxes/box-messages/box-messages.component';
+
 
 @NgModule({
   declarations: [
@@ -73,7 +89,15 @@ import { NewCocktailComponent } from './new-cocktail/new-cocktail.component';
     NewCategoryComponent,
     NewIngredientComponent,
     NewGlassComponent,
-    NewCocktailComponent
+    NewCocktailComponent,
+    Box1Component,
+    Box2Component,
+    Box3Component,
+    Box4Component,
+    BoxWidgetComponent,
+    AllBoxesComponent,
+    GeneralButtonComponent,
+    BoxMessagesComponent
   ],
   imports: [
     HttpClientModule,
@@ -99,6 +123,7 @@ import { NewCocktailComponent } from './new-cocktail/new-cocktail.component';
     IngredientService,
     GlassService,
     BaseHttpService,
+    BoxService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpIntercept,

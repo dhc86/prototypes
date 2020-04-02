@@ -30,6 +30,17 @@ export class NavbarComponent implements OnInit {
             {url: '/dashboard/orders', label: 'Orders'},
           ];
         }
+        else if(event.url.indexOf('lazy') !==-1) {
+          this.navBarSubOptions = [
+            {url: '/lazy', label: 'Bears'},
+            {url: '/lazy/cats', label: 'Cats'},
+            {url: '/lazy/god', label: 'God'},
+            {url: '/lazy/sharks', label: 'Sharks'},
+          ];
+        }
+        else if(event.url.indexOf('boxes') !==-1) {
+          this.navBarSubOptions = [];
+        }
       }
     })
   }

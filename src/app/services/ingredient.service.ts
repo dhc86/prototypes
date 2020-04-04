@@ -11,7 +11,7 @@ import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
   providedIn: 'root'
 })
 export class IngredientService {
-
+  ingredienServiceName: string;
   constructor(
     private http: HttpClient
   ) { }
@@ -23,5 +23,13 @@ export class IngredientService {
           return response.drinks.map(category => plainToClass(Ingredient ,category));
         })
       )
+  }
+
+  setServiceName(name: string){
+    this.ingredienServiceName = name;
+  }
+
+  getServiceName(): string{
+    return this.ingredienServiceName;
   }
 }

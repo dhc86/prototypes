@@ -56,8 +56,11 @@ const routes: Routes = [
   { path: 'cocktails', redirectTo: '/cocktails/cocktails', },
   {
     path: 'lazy',
-    loadChildren:
-    () => import('./lazy/lazy.module').then(mod => mod.LazyModule)
+    loadChildren: () => import('./lazy/lazy.module').then(mod => mod.LazyModule)
+  },
+  {
+    path: 'forms',
+    loadChildren: () => import('./forms/forms.module').then(mod => mod.FormsTabModule)
   },
   { path: '**', component: NotFoundComponent }
   // not created yet

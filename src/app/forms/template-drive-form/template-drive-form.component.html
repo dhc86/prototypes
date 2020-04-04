@@ -1,0 +1,42 @@
+<div class="container">
+  <h5>
+    template-drive-form
+  </h5>
+  <form
+    (ngSubmit)="onSubmit(form.value)"
+    #form="ngForm">
+    <div class="form-group">
+      <label for="skuInput">SKU Name</label>
+      <input
+        ngModel
+        type="text"
+        name="sku"
+        required="true"
+        id="skuInput"
+        placeholder="Enter SKU..."
+        autocomplete="false"
+        class="form-control">
+      <br>
+      <label for="skuInput">SKU Number</label>
+      <input
+        ngModel
+        type="number"
+        name="skuNumber"
+        id="skuInput"
+        required="true"
+        placeholder="Enter SKU..."
+        autocomplete="false"
+        class="form-control"
+        onkeydown="javascript: return event.keyCode == 69 ? false : true">
+      </div>
+      <div class="modal-footer">
+        <button
+          class="btn btn-secondary"
+          type="submit"
+          [disabled]="!form.form.valid">
+          Save
+        </button>
+    </div>
+    {{ form.form.valid | json }}
+  </form>
+</div>

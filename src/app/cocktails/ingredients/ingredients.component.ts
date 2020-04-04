@@ -10,6 +10,8 @@ import { Ingredient } from '../../models/ingredient';
 export class IngredientsComponent implements OnInit {
   isLoading: boolean = true;
   ingredients: Ingredient[];
+  // testing DI singleton...
+  serviceName: string;
   constructor(
     private ingredientService: IngredientService
   ) { }
@@ -18,6 +20,7 @@ export class IngredientsComponent implements OnInit {
     this.ingredientService.getAll().subscribe(data => {
       this.ingredients = data;
       this.isLoading = false;
-    })
+    });
+    this.serviceName = this.ingredientService.getServiceName();
   }
 }

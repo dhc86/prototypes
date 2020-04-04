@@ -4,7 +4,7 @@ import { BearsComponent } from './bears/bears.component';
 import { GodComponent } from './god/god.component';
 import { CatsComponent } from './cats/cats.component';
 import { SharksComponent } from './sharks/sharks.component';
-import { LazyRoutingModule } from './lazy-routing.module'
+import { LazyRoutingModule } from './lazy-routing.module';
 
 @NgModule({
   declarations: [

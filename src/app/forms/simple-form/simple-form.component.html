@@ -1,0 +1,11 @@
+<div class="container">
+  <div>App created by: {{ createdBy }}</div>
+  <p
+    *ngIf="serviceName"
+    class="welcome">You are now using servicename as: {{ serviceName }}!
+  </p>
+  <button
+    (click)="setServiceName()" class="ui button" >Set Service name!
+  </button>
+</div>
+

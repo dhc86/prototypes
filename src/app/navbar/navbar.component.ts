@@ -38,6 +38,13 @@ export class NavbarComponent implements OnInit {
             {url: '/lazy/sharks', label: 'Sharks'},
           ];
         }
+        else if(event.url.indexOf('forms') !==-1) {
+          this.navBarSubOptions = [
+            {url: '/forms/simple-form', label: 'Simple Form'},
+            {url: '/forms/reactive-form', label: 'Reactive Form'},
+            {url: '/forms/template-driven-form', label: 'Template Driven Form'},
+          ];
+        }
         else if(event.url.indexOf('boxes') !==-1) {
           this.navBarSubOptions = [];
         }

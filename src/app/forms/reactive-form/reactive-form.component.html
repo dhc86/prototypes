@@ -1,0 +1,81 @@
+
+<div class="container">
+  Reactive Form!
+
+  <div class="container">
+    <h5>
+      template-drive-form
+    </h5>
+    <form
+      [formGroup]="myForm"
+      (ngSubmit)="onSubmit(myForm.value)">
+      <div class="form-group">
+        <label for="skuInput">Name</label>
+        <input
+          [formControl]="myForm.controls['name']"
+          type="text"
+          name="name"
+          required="true"
+          id="skuInput"
+          placeholder="Enter SKU..."
+          autocomplete="name"
+          class="form-control">
+          <div
+            class="alert alert-danger"
+            *ngIf="nameControl.hasError('invalidName') && nameControl.touched">Name shuold be only letters from A to Z.
+          </div>
+          <div
+            class="alert alert-danger"
+            *ngIf="nameControl.invalid && nameControl.touched">Name is required!
+          </div>
+        <br>
+        <label for="skuInput">Age</label>
+        <input
+          [formControl]="myForm.controls['age']"
+          type="number"
+          name="age"
+          id="skuInput"
+          required="true"
+          placeholder="Enter SKU..."
+          autocomplete="age"
+          class="form-control"
+          [formControl]="myForm.controls['age']"
+          onkeydown="javascript: return event.keyCode == 69 ? false : true">
+          <div
+            class="alert alert-danger"
+            *ngIf="myForm.controls['age'].invalid && myForm.controls['age'].touched">Age entry is invalid
+          </div>
+          <br>
+          <label for="skuInput">Phone</label>
+          <input
+            [formControl]="myForm.controls['phone']"
+            type="text"
+            name="phone"
+            id="skuInput"
+            required="true"
+            placeholder="Enter SKU..."
+            autocomplete="phone"
+            class="form-control"
+            [formControl]="myForm.controls['phone']"
+            onkeydown="javascript: return event.keyCode == 69 ? false : true">
+        </div>
+        <div
+          class="alert alert-danger"
+          *ngIf="myForm.controls['phone'].hasError('invalidPhone') && myForm.controls['phone'].touched">Phone should start with 604
+        </div>
+        <div
+          class="alert alert-danger"
+          *ngIf="myForm.controls['phone'].invalid && myForm.controls['phone'].touched">Invalid entry
+        </div>
+        <div class="modal-footer">
+          <button
+            class="btn btn-secondary"
+            type="submit"
+            [disabled]="myForm.invalid">
+            Save
+          </button>
+      </div>
+    </form>
+  </div>
+
+</div>

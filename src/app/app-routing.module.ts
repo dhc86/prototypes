@@ -62,6 +62,10 @@ const routes: Routes = [
     path: 'forms',
     loadChildren: () => import('./forms/forms.module').then(mod => mod.FormsTabModule)
   },
+  {
+    path: 'youtube',
+    loadChildren: () => import('./youtube/youtube.module').then(mod => mod.YoutubeModule)
+  },
   { path: '**', component: NotFoundComponent }
   // not created yet
   // { path: 'products/:name/:id', component: ProductComponent },

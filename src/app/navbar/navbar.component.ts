@@ -45,6 +45,9 @@ export class NavbarComponent implements OnInit {
             {url: '/forms/template-driven-form', label: 'Template Driven Form'},
           ];
         }
+        else if(event.url.indexOf('youtube') !==-1) {
+          this.navBarSubOptions = [];
+        }
         else if(event.url.indexOf('boxes') !==-1) {
           this.navBarSubOptions = [];
         }

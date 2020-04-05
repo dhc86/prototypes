@@ -1,0 +1,20 @@
+<div class="container">
+  <br>
+  <app-search-box
+    (isLoading)="isLoading = $event"
+    (videoResults)="updateResults($event)">
+  </app-search-box>
+  <br>
+  <div
+    *ngIf="isLoading"
+    class="d-flex justify-content-center">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+  <br>
+  <app-video-results
+    *ngFor="let result of results"
+    [result]="result">
+  </app-video-results>
+</div>

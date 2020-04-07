@@ -51,6 +51,12 @@ export class NavbarComponent implements OnInit {
         else if(event.url.indexOf('boxes') !==-1) {
           this.navBarSubOptions = [];
         }
+        else if(event.url.indexOf('music') !==-1) {
+          this.navBarSubOptions = [];
+        }
+        else if(event.url.indexOf('chat') !==-1) {
+          this.navBarSubOptions = [];
+        }
       }
     })
   }

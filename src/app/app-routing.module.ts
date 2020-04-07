@@ -66,6 +66,14 @@ const routes: Routes = [
     path: 'youtube',
     loadChildren: () => import('./youtube/youtube.module').then(mod => mod.YoutubeModule)
   },
+  {
+    path: 'music',
+    loadChildren: () => import('./music/music.module').then(mod => mod.MusicModule)
+  },
+  {
+    path: 'chat',
+    loadChildren: () => import('./chat/chat.module').then(mod => mod.ChatModule)
+  },
   { path: '**', component: NotFoundComponent }
   // not created yet
   // { path: 'products/:name/:id', component: ProductComponent },

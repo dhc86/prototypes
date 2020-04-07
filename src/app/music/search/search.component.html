@@ -1,0 +1,15 @@
+<label for="search">
+  {{ label }}
+</label>
+
+<input
+  #query
+  name="search"
+  type="text"
+  class="form-control"
+  (keydown.enter)="searchQuery(query.value)">
+<br>
+<button
+  class="btn btn-primary"
+  (click)="searchQuery(query.value)">{{ label }}
+</button>

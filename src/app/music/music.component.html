@@ -1,0 +1,13 @@
+<div class="container">
+    <h1>Spotify <small>Music Search</small></h1>
+    <span [routerLinkActive]="['active']">
+      <a [routerLink]="['/music/tracks']">Tracks</a>
+    </span> -
+    <span [routerLinkActive]="['active']">
+      <a [routerLink]="['/music/albums']">Albums</a>
+    </span> -
+    <span [routerLinkActive]="['active']">
+      <a [routerLink]="['/music/artists']">Artists</a>
+    </span>
+  <router-outlet></router-outlet>
+</div>

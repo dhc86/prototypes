@@ -8,7 +8,8 @@ export const environment = {
   cocktailEnvironment: 'Development',
   apiUrl: 'https://www.thecocktaildb.com/api/json/v1/1/',
   YOUTUBE_API_KEY: 'AIzaSyBI3LeaOm7vL5PPzKRVG1ojRWts_rrHacs',
-  YOUTUBE_API_URL: 'https://www.googleapis.com/youtube/v3/search'
+  YOUTUBE_API_URL: 'https://www.googleapis.com/youtube/v3/search',
+  SPOTIFY_API_KEY: 'BQAUo3gm_eRQrWoI9rA5QDnFzIN8fsAullBenhFliO7Yy7VbCExScKZm64Vm3-boyRPU5RxUlGdElu3iH6c'
 };
 
 

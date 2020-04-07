@@ -1,0 +1,49 @@
+<div class="search-container">
+  <app-search
+    [label]="'Search Tracks'"
+    (searcResults)="trackResults($event)"
+    [isLoading]="isLoading">
+  </app-search>
+</div>
+<div
+  *ngIf="isLoading"
+  class="d-flex justify-content-center">
+  <div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+<div class="tracks-results-container">
+  <div *ngIf="tracks">
+    <div *ngIf="!tracks.length">
+      No tracks were found with the term
+    </div>
+
+    <div *ngIf="tracks.length">
+      <h1>Track Results</h1>
+
+      <div class="row">
+        <div
+          class="col-sm-6 col-md-4"
+          *ngFor="let t of tracks">
+          <div class="card" style="width: 18rem;">
+            <img
+              class="card-img-top"
+              src="{{ t.album.images[0].url }}"
+              alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">
+                <a [routerLink]="['/tracks', t.id]"> {{ t.name }}</a>
+              </h5>
+              <p class="card-text">
+                Artist: <a [routerLink]="['/artists', t.artists[0].id]">{{ t.artists[0].name }} </a>
+              </p>
+              <h4>
+                Album: <a [routerLink]="['/albums', t.album.id]">{{ t.album.name }} </a>
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
